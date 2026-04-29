@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coworking Space Gallery | HeadQ Kochi & Calicut</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <!-- Meta Taga SEO  -->
+    <meta name="description" content="See what makes HeadQ different. Explore photos of our premium workspaces, private cabins, meeting rooms & facilities across Kochi & Calicut.">
+    <link rel="canonical" href="https://headq.in/gallery.html">
+    <meta property="og:title" content="Coworking Space Gallery | HeadQ Kochi & Calicut">
+    <meta property="og:description" content="See what makes HeadQ different. Explore photos of our premium workspaces, private cabins, meeting rooms & facilities across Kochi & Calicut.">
+    <meta property="og:image" content="https://headq.in/assets/spaces/hq1.jpeg">
+    <meta property="og:url" content="https://headq.in/gallery.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="landing.css">
+
+    <style>
+        /* ── Base ── */
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #050505;
+            color: #fff;
+        }
+
+        /* ── HERO BANNER ── */
+        .gallery-hero-premium {
+            padding: 150px 20px 140px;
+            background: url('assets/backgrounds/hero_bg_hd.png') center / cover no-repeat fixed;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(5,5,5,0.3) 0%, #050505 100%);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700; letter-spacing: -1px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* ── MASONRY GRID ── */
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 24px 100px;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 24px;
+        }
+
+        @media (max-width: 992px) {
+            .masonry-grid { column-count: 2; }
+        }
+
+        @media (max-width: 576px) {
+            .masonry-grid { column-count: 1; }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #111;
+            /* Premium subtle shadow */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            /* Hardware acceleration for smooth hover */
+            transform: translateZ(0); 
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover Overlay */
+        .item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 24px;
+            transition: opacity 0.4s ease;
+        }
+
+        .masonry-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f97316;
+            margin-bottom: 8px;
+            transform: translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .item-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            transform: translateY(15px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+        }
+
+        .masonry-item:hover .item-tag,
+        .masonry-item:hover .item-title {
+            transform: translateY(0);
+        }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(5,5,5,0.98);
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 40px;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 18px;
+        }
+
+        .lightbox-close:hover {
+            background: #f97316;
+            border-color: #f97316;
+        }
+
+        .lightbox-info {
+            margin-top: 25px;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .lightbox-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .lightbox-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Pill Navigation -->
+    <div class="nav-wrapper">
+        <nav class="navbar navbar-expand-lg" id="mainNav">
+            <div class="container-fluid px-2">
+                <a class="navbar-brand me-4 ms-2" href="index.html">
+                    <img src="assets/logo/logo.png" alt="HeadQ" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    style="border:none; box-shadow:none;">
+                    <i class="fas fa-bars text-white fs-4"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="amenities.html">Amenities</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="gallery.html" style="color:#f97316 !important;">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="ms-auto d-flex align-items-center">
+                        <a href="contact.html" class="btn-capsule me-2">
+                            Book Now
+                            <div class="btn-icon"><i class="fas fa-arrow-up"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero Banner -->
+    <header class="gallery-hero-premium">
+        <div class="hero-overlay"></div>
+        <div class="container position-relative z-3 text-center" style="padding-top: 80px;">
+            <p class="text-uppercase" style="color: #f97316; letter-spacing: 4px; font-weight: 700; font-size: 14px;">HEADQ VISUALS</p>
+            <h1 class="hero-title text-white mb-3">Our Workspaces</h1>
+            <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto; font-size: 18px; font-weight: 300;">
+                Premium environments designed to inspire creativity, foster collaboration, and fuel your ambition.
+            </p>
+        </div>
+    </header>
+
+    <!-- Masonry Grid -->
+    <section class="gallery-container">
+        <div class="masonry-grid" id="masonryGallery">
+            <!-- Images injected via JS -->
+        </div>
+    </section>
+
+    <!-- Simple Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <img src="" alt="Fullscreen View" id="lightboxImg">
+        <div class="lightbox-info">
+            <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
+            <p class="lightbox-desc" id="lightboxDesc">Description</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer border-top border-white border-opacity-10 mt-5 pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <img src="assets/logo/logo.png" alt="HeadQ" style="height: 50px; width: auto; object-fit: contain;">
+                    <p class="mt-4 pe-lg-5 text-white">Premium coworking spaces designed for creators, culture, and
+                        community.</p>
+                    <div class="mt-4">
+                        <p class="text-white mb-2"><i class="fas fa-envelope text-orange me-2"></i> <a href="mailto:info@headq.in" class="text-white text-decoration-none">info@headq.in</a></p>
+                        <p class="text-white mb-2"><i class="fas fa-phone text-orange me-2"></i> <a href="tel:+919037115652" class="text-white text-decoration-none">+91 90371 15652</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <h6 class="text-white mb-4 fw-bold">Locations</h6>
+                    <div class="mb-4">
+                        <p class="mb-1 fw-bold text-white">KOCHI</p>
+                        <p class="small text-muted mb-1">HiLite Platino, Kochi</p>
+                        <p class="small location-coords">9.9312° N, 76.2673° E</p>
+                    </div>
+                    <div>
+                        <p class="mb-1 fw-bold text-white">KOZHIKODE</p>
+                        <p class="small text-muted mb-1">Hi-Lite Business Park, Kozhikode</p>
+                        <p class="small location-coords">11.2488° N, 75.7839° E</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white mb-4 fw-bold">Stay Connected</h6>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="https://www.facebook.com/share/1GK1qBV1BL/" target="_blank" class="fs-4" style="color:#1877F2 !important;"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/headq_coworking?igsh=MWE2cmFmbzh3OWcyag==" target="_blank"
+                            class="fs-4" style="color:#E1306C !important;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/headq-coworking-space-824828200?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            target="_blank" class="fs-4" style="color:#0A66C2 !important;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/919037115652?text=Hello%20I%20want%20more%20information" class="fs-4"
+                            target="_blank" style="color:#25D366 !important;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-muted small">Special offer valid only for 3 months. T&amp;C Apply.</p>
+                </div>
+            </div>
+            <div class="mt-5 pt-5 border-top border-white border-opacity-5 text-center text-muted small">
+                &copy; 2024 HeadQ. Crafted for the ambitious.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="landing.js"></script>
+
+    <script>
+        /* ── Gallery Data ── */
+        const IMAGE_DATA = [
+            { src: 'assets/hq-images-optimized/DSC03950.webp', title: 'Open Workstation', desc: 'Bright ergonomic desks, natural light, and a community that fuels ambition.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC03957.webp', title: 'Private Cabin', desc: 'Fully enclosed private offices for deep work and confidential meetings.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC03993.webp', title: 'Conference Room', desc: '10-seater boardroom with HD projector and video conferencing.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC04009.webp', title: 'Breakout Lounge', desc: 'Informal brainstorming space with pantry. Recharge and reconnect.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC04020.webp', title: 'Premium Reception', desc: 'Professionally staffed reception handling guests, couriers, and calls.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC04024.webp', title: 'Private Calling Pod', desc: 'Soundproofed booths for video calls and focused solo sessions.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC04073.webp', title: 'Collaboration Zone', desc: 'Open areas for team synergy — where Kerala\'s builders build together.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/DSC04074.webp', title: 'Premium Building', desc: 'Hi-Lite Business Park with parking, 24/7 security, and power backup.', loc: 'Kozhikode' },
+            { src: 'assets/hq-images-optimized/IMG_7655.jpg', title: 'Kochi Hub', desc: 'HiLite Platino — coastal modern workspace for high-growth startups.', loc: 'Kochi' },
+            { src: 'assets/hq-images-optimized/IMG_7668.jpg', title: 'Kochi Collaboration', desc: 'Connect with innovators at our Kochi hub. Culture meets commerce.', loc: 'Kochi' },
+            { src: 'assets/hq-images-optimized/IMG_7671.jpg', title: 'Kochi Lounge', desc: 'Vibrant breakout spaces, premium seating, unlimited coffee.', loc: 'Kochi' },
+            { src: 'assets/hq-images-optimized/IMG_7672.jpg', title: 'Modern Interiors', desc: 'Thoughtfully designed to inspire productivity. Every detail crafted.', loc: 'Kochi' },
+            { src: 'assets/hq-images-optimized/IMG_7687.jpg', title: 'Networking Hub', desc: 'Where Kochi\'s creative community gathers. Join 2,000+ members.', loc: 'Kochi' },
+            { src: 'assets/hq-images-optimized/1 (1).jpg', title: 'Premium Ambiance', desc: 'Sleek finishes with warm accents. High-performance meets design.', loc: 'HeadQ' },
+            { src: 'assets/hq-images-optimized/3.jpg', title: 'HeadQ Community', desc: 'More than a workspace — a living community of founders and changemakers.', loc: 'HeadQ' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('masonryGallery');
+            const lightbox = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightboxImg');
+            const lbTitle = document.getElementById('lightboxTitle');
+            const lbDesc = document.getElementById('lightboxDesc');
+            const lbClose = document.getElementById('lightboxClose');
+
+            // 1. Build Masonry Grid
+            let html = '';
+            IMAGE_DATA.forEach((item, i) => {
+                html += `
+                    <div class="masonry-item" data-index="${i}">
+                        <img src="${item.src}" alt="${item.title}" loading="lazy" decoding="async">
+                        <div class="item-overlay">
+                            <div class="item-tag">${item.loc}</div>
+                            <h3 class="item-title">${item.title}</h3>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+
+            // 2. Lightbox Logic
+            document.querySelectorAll('.masonry-item').forEach(el => {
+                el.addEventListener('click', () => {
+                    const idx = el.getAttribute('data-index');
+                    const data = IMAGE_DATA[idx];
+                    lbImg.src = data.src;
+                    lbTitle.textContent = data.title;
+                    lbDesc.textContent = `${data.loc} — ${data.desc}`;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            // Close Lightbox
+            const closeLB = () => lightbox.classList.remove('active');
+            lbClose.addEventListener('click', closeLB);
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox || e.target.classList.contains('lightbox-info')) closeLB();
+            });
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'Escape') closeLB();
+            });
+        });
+    </script>
+</body>
+</html>
