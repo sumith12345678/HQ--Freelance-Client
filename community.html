@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | HeadQ - Where work becomes community</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Meta Tags for SEO -->
+    <meta name="description"
+        content="Explore the HeadQ community in Kochi & Kozhikode. Founders Club, Freelancers Collective, and curated networking events for modern professionals.">
+    <link rel="canonical" href="https://headq.in/community.html">
+
+    <meta property="og:title" content="Community | HeadQ - Kochi & Kozhikode">
+    <meta property="og:description"
+        content="Explore the HeadQ community in Kochi & Kozhikode. Founders Club, Freelancers Collective, and curated networking events.">
+    <meta property="og:image" content="https://headq.in/assets/spaces/hq1.jpeg">
+    <meta property="og:url" content="https://headq.in/community.html">
+
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="landing.css">
+
+    <style>
+        :root {
+            --primary-orange: #FF6B00;
+            --bg-dark: #070707;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        .py-section {
+            padding: 4rem 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .py-section {
+                padding: 2.5rem 0 !important;
+            }
+        }
+
+        .community-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 160px 0 80px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(7,7,7,1)), url('assets/community/hero.png') center/cover no-repeat;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--primary-orange);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .hero-heading {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-heading span.italic {
+            font-style: italic;
+            font-weight: 300;
+            display: block;
+        }
+
+        .hero-body {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 50px 0;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-tile {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-tile:hover img {
+            transform: scale(1.1);
+        }
+
+        .tile-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-tile:hover .tile-overlay {
+            opacity: 1;
+        }
+
+        .tile-caption {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-tile:hover .tile-caption {
+            transform: translateY(0);
+        }
+
+        /* Programme Cards */
+        .programme-card {
+            background: linear-gradient(145deg, #111 0%, #080808 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 50px;
+            height: 100%;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .programme-card:hover {
+            border-color: rgba(255, 107, 0, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .status-badge {
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--primary-orange);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            padding: 6px 15px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .section-tag {
+            position: relative;
+            padding-top: 15px;
+        }
+
+        .section-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-orange), transparent);
+            border-radius: 100px;
+        }
+
+        .text-center .section-tag::before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .programme-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .nested-feature {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .tag-pill {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 15px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .waitlist-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            padding: 12px 25px;
+            color: white;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .waitlist-input:focus {
+            border-color: var(--primary-orange);
+        }
+
+        @media (max-width: 576px) {
+            .waitlist-form {
+                flex-direction: column;
+            }
+            .waitlist-input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .waitlist-form .btn-capsule {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Event Tiles */
+        .event-tile {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 35px;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .event-tile:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        /* Premium CTA Section */
+        .premium-cta-section {
+            background: #0a0a0a;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 100px 80px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .premium-cta-section {
+                flex-direction: column;
+                padding: 60px 40px;
+                text-align: center;
+            }
+        }
+
+        .cta-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .cta-visual {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cta-visual img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 0, 0.2);
+        }
+
+        .cta-heading {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .cta-stats-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 576px) {
+            .cta-stats-row {
+                justify-content: center;
+            }
+        }
+
+        .cta-stat-item h4 {
+            color: var(--primary-orange);
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .cta-stat-item p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .bg-glow-orb {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Pill Navigation -->
+    <div class="nav-wrapper">
+        <nav class="navbar navbar-expand-lg" id="mainNav">
+            <div class="container-fluid px-2">
+                <a class="navbar-brand me-4" href="index.html" style="margin-left: -10px;">
+                    <img src="assets/logo/logo.png" alt="HeadQ" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    style="border:none; box-shadow:none;">
+                    <i class="fas fa-bars text-white fs-4"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="amenities.html">Amenities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="community.html"
+                                style="color: var(--primary-orange) !important;">Community</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="ms-auto d-flex align-items-center">
+                        <a href="contact.html" class="btn-capsule me-2">
+                            Book Now
+                            <div class="btn-icon"><i class="fas fa-arrow-up"></i></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Community Hero Section -->
+    <section class="community-hero">
+        <div class="container">
+            <div class="reveal-from-bottom">
+                <p class="hero-eyebrow">HeadQ • Kochi & Kozhikode</p>
+                <h1 class="hero-heading">Where work becomes <span class="italic">community.</span></h1>
+                <p class="hero-body">HeadQ is more than a workspace — it's a growing ecosystem of founders, freelancers,
+                    and professionals who collaborate, share ideas, and build together. Explore our programmes and
+                    community moments below.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Gallery -->
+    <section class="py-section">
+        <div class="container">
+            <div class="mb-5">
+                <h5 class="section-tag reveal-from-bottom">COMMUNITY GALLERY</h5>
+                <h2 class="section-title reveal-from-bottom">Life inside <span class="text-orange">HeadQ</span></h2>
+            </div>
+
+            <div class="gallery-grid reveal-from-bottom">
+                <!-- Tile 1 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/DSC03950.webp" alt="Open workspace — Kozhikode hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">1. Open workspace — Kozhikode hub</p>
+                    </div>
+                </div>
+                <!-- Tile 2 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/DSC04009.webp" alt="Breakout lounge — Kozhikode hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">2. Breakout lounge — Kozhikode hub</p>
+                    </div>
+                </div>
+                <!-- Tile 3 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/DSC03993.webp" alt="Conference room — Kochi hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">3. Conference room — Kochi hub</p>
+                    </div>
+                </div>
+                <!-- Tile 4 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/IMG_7668.jpg" alt="Community event — Kochi hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">4. Community event — Kochi hub</p>
+                    </div>
+                </div>
+                <!-- Tile 5 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/DSC04073.webp" alt="Networking session — Kozhikode hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">5. Networking session — Kozhikode hub</p>
+                    </div>
+                </div>
+                <!-- Tile 6 -->
+                <div class="gallery-tile">
+                    <img src="assets/hq-images-optimized/DSC03957.webp" alt="Private cabin floor — Kozhikode hub">
+                    <div class="tile-overlay">
+                        <p class="tile-caption">6. Private cabin floor — Kozhikode hub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes Section -->
+    <section class="py-section" style="background: #050505;">
+        <div class="container">
+            <div class="row mb-5 align-items-end">
+                <div class="col-lg-7">
+                    <h5 class="section-tag reveal-from-bottom">OUR PROGRAMMES</h5>
+                    <h2 class="section-title reveal-from-bottom mb-0">Built for every kind of <span
+                            class="text-orange">builder.</span></h2>
+                </div>
+                <div class="col-lg-5">
+                    <p class="text-muted reveal-from-bottom mb-0 mt-3 mt-lg-0">From exclusive founder circles to
+                        flexible freelancer support — HeadQ programmes are designed to help you grow beyond the desk.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Programme 1: Founders Club -->
+                <div class="col-lg-6 reveal-from-bottom">
+                    <div class="programme-card">
+                        <span class="status-badge">Active</span>
+                        <p class="text-orange fw-bold small mb-2">Exclusive • Members only</p>
+                        <h3 class="programme-name">Founders Club</h3>
+                        <p class="opacity-75">A private community exclusively for founders inside HeadQ. A curated space
+                            where business leaders connect, share real challenges, and support each other's growth —
+                            behind closed doors.</p>
+
+                        <div class="nested-feature">
+                            <span class="badge mb-3" style="background: var(--primary-orange); color: white;">Signature
+                                programme</span>
+                            <h5 class="fw-bold mb-2">Tea Talks</h5>
+                            <p class="small opacity-75">Focused conversations on a curated topic. 1–2 hours. Founders
+                                only. A small room, strong chai, and real talk about building businesses in Kerala.</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <span class="tag-pill">HeadQ members only</span>
+                            <span class="tag-pill">1–2 hrs per session</span>
+                        </div>
+
+                        <a href="contact.html" class="btn-capsule">
+                            Learn about Founders Club
+                            <div class="btn-icon"><i class="fas fa-arrow-up"></i></div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Programme 2: Freelancers Collective -->
+                <div class="col-lg-6 reveal-from-bottom">
+                    <div class="programme-card">
+                        <span class="status-badge"
+                            style="background: rgba(255,255,255,0.05); color: #888; border-color: rgba(255,255,255,0.1);">Coming
+                            soon</span>
+                        <p class="text-orange fw-bold small mb-2">Programme • Freelancers</p>
+                        <h3 class="programme-name">Freelancers Programme</h3>
+                        <p class="opacity-75">A dedicated programme for Kerala's independent professionals. Resources,
+                            community support, and structured opportunities tailored specifically to freelancers
+                            building their practice from HeadQ.</p>
+
+                        <div class="mt-4 pt-2">
+                            <h6 class="fw-bold text-white mb-3">What to expect:</h6>
+                            <ul class="list-unstyled d-flex flex-column gap-2 opacity-75">
+                                <li><i class="fas fa-check-circle text-orange me-2"></i> Freelancer-specific networking
+                                    events</li>
+                                <li><i class="fas fa-check-circle text-orange me-2"></i> Skill sessions and peer
+                                    learning circles</li>
+                                <li><i class="fas fa-check-circle text-orange me-2"></i> Client-connection and referral
+                                    network</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-5">
+                            <p class="fw-bold mb-2">Be the first to know when we launch.</p>
+                            <form class="waitlist-form">
+                                <input type="email" class="waitlist-input" placeholder="your@email.com">
+                                <button type="submit" class="btn-capsule" style="padding: 10px 30px;">
+                                    Notify me
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="py-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h5 class="section-tag reveal-from-bottom">EVENTS AT HEADQ</h5>
+                <h2 class="section-title reveal-from-bottom">Things happen <span class="text-orange">here.</span></h2>
+            </div>
+
+            <div class="row g-4 reveal-from-bottom">
+                <!-- Event 1 -->
+                <div class="col-lg-4">
+                    <div class="event-tile">
+                        <div class="event-title">Tea Talks</div>
+                        <p class="opacity-75">Focused 1–2 hour conversations on business topics. Founders only. Held
+                            inside HeadQ, regularly.</p>
+                    </div>
+                </div>
+                <!-- Event 2 -->
+                <div class="col-lg-4">
+                    <div class="event-tile">
+                        <div class="event-title">Community Mixers</div>
+                        <p class="opacity-75">Casual networking across our member companies. New connections, open
+                            conversations, shared ideas.</p>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div class="col-lg-4">
+                    <div class="event-tile">
+                        <div class="event-title">Launch Events</div>
+                        <p class="opacity-75">Product launches, brand reveals, and business milestones — celebrated with
+                            the full HeadQ community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redesigned Premium CTA -->
+    <section class="container reveal-from-bottom">
+        <div class="premium-cta-section">
+            <div class="bg-glow-orb"></div>
+
+            <div class="cta-content">
+                <h5 class="section-tag">JOIN THE NETWORK</h5>
+                <h2 class="cta-heading">Ready to be part of <span class="text-orange">something bigger?</span></h2>
+                <p class="cta-description">Join 2,000+ professionals already growing inside HeadQ — Kochi & Kozhikode.
+                    Your next big collaboration starts here.</p>
+
+                <a href="contact.html" class="btn-capsule">
+                    Join the community
+                    <div class="btn-icon"><i class="fas fa-arrow-up"></i></div>
+                </a>
+
+                <div class="cta-stats-row">
+                    <div class="cta-stat-item">
+                        <h4>2,000+</h4>
+                        <p>Members</p>
+                    </div>
+                    <div class="cta-stat-item">
+                        <h4>100+</h4>
+                        <p>Companies</p>
+                    </div>
+                    <div class="cta-stat-item">
+                        <h4>2</h4>
+                        <p>Flagship Hubs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-visual">
+                <img src="assets/community/network.png" alt="HeadQ Community Network">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <img src="assets/logo/logo.png" alt="HeadQ" style="height: 50px; width: auto; object-fit: contain;">
+                    <p class="mt-4 pe-lg-5 text-white">Premium coworking spaces designed for creators, culture, and
+                        community.</p>
+                    <div class="mt-4">
+                        <p class="text-white mb-2"><i class="fas fa-envelope text-orange me-2"></i> <a
+                                href="mailto:info@headq.in" class="text-white text-decoration-none">info@headq.in</a>
+                        </p>
+                        <p class="text-white mb-2"><i class="fas fa-phone text-orange me-2"></i> <a
+                                href="tel:+919037115652" class="text-white text-decoration-none">+91 90371 15652</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <h6 class="text-white mb-4 fw-bold">Locations</h6>
+                    <div class="mb-4">
+                        <p class="mb-1 fw-bold text-white">KOCHI</p>
+                        <p class="small text-muted mb-1">HiLite Platino, Kochi</p>
+                        <p class="small location-coords">9.9312° N, 76.2673° E</p>
+                    </div>
+                    <div>
+                        <p class="mb-1 fw-bold text-white">KOZHIKODE</p>
+                        <p class="small text-muted mb-1">Hi-Lite Business Park, Kozhikode</p>
+                        <p class="small location-coords">11.2488° N, 75.7839° E</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-white mb-4 fw-bold">Stay Connected</h6>
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="https://www.facebook.com/share/1GK1qBV1BL/" target="_blank" class="fs-4"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/headq_coworking?igsh=MWE2cmFmbzh3OWcyag==" target="_blank"
+                            class="fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/headq-coworking-space-824828200" target="_blank"
+                            class="fs-4"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/919037115652?text=Hello%20I%20want%20more%20information" class="fs-4"
+                            target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-muted small">Special offer valid only for 3 months. T&amp;C Apply.</p>
+                </div>
+            </div>
+            <div class="mt-5 pt-5 border-top border-white border-opacity-5 text-center text-muted small">
+                &copy; 2024 HeadQ. Crafted for the ambitious.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919037115652?text=Hello%20I%20want%20more%20information" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="landing.js"></script>
+</body>
+
+</html>
