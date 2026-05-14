@@ -2011,8 +2011,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 1)), url('assets/backgrounds/hero_premium_new.png') center/cover;
-    filter: blur(2px) brightness(0.6);
+    background: url('assets/hq-images-optimized/IMG_7668.jpg') center/cover no-repeat;
+    filter: brightness(0.8);
     z-index: 1;
 }
 

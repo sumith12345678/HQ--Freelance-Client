@@ -36,19 +36,42 @@
 
         /* ── HERO BANNER ── */
         .gallery-hero-premium {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             padding: 150px 20px 140px;
-            background: url('assets/backgrounds/hero_bg_hd.png') center / cover no-repeat fixed;
-            display: flex; align-items: center; justify-content: center;
             position: relative;
+            overflow: hidden;
         }
+
+        .gallery-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/hq-images-optimized/DSC04073.webp') center / cover no-repeat;
+            filter: brightness(0.7);
+            z-index: 1;
+        }
+
         .hero-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(5,5,5,0.3) 0%, #050505 100%);
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.2);
+            z-index: 2;
         }
+
         .hero-title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 700; letter-spacing: -1px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 3;
         }
 
         /* ── MASONRY GRID ── */
@@ -251,6 +274,7 @@
 
     <!-- Hero Banner -->
     <header class="gallery-hero-premium">
+        <div class="gallery-hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container position-relative z-3 text-center" style="padding-top: 80px;">
             <p class="text-uppercase" style="color: #f97316; letter-spacing: 4px; font-weight: 700; font-size: 14px;">HEADQ VISUALS</p>
