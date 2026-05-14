@@ -265,6 +265,155 @@
             overflow: hidden;
             height: 100vh;
         }
+
+        /* --- Extreme Premium Space Types Grid --- */
+        /* --- Infinite Space Marquee --- */
+        .space-types-section {
+            background: #050505 !important;
+            padding: 40px 0 100px 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .marquee-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 25px;
+            width: max-content;
+            animation: spaceScroll 40s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes spaceScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .space-item-card {
+            width: 300px;
+            height: 420px;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .space-item-card:hover {
+            transform: scale(1.02) translateY(-5px);
+            border-color: #ff6b00;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .space-item-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .space-item-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay Gradient */
+        .space-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            z-index: 2;
+        }
+
+        .space-card-content {
+            transform: translateY(10px);
+            transition: transform 0.5s ease;
+        }
+
+        .space-item-card:hover .space-card-content {
+            transform: translateY(0);
+        }
+
+        .space-card-line {
+            width: 40px;
+            height: 4px;
+            background: #ff6b00;
+            margin-bottom: 15px;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .space-item-card:hover .space-card-line {
+            width: 60px;
+        }
+
+        .space-card-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .space-card-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .space-card-btn {
+            background: #ff6b00;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .space-item-card:hover .space-card-btn {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Glass Text Badge (Optional top element) */
+        .space-glass-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 6px 15px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            z-index: 3;
+        }
     </style>
 </head>
 
@@ -338,7 +487,7 @@
 
         <div class="hero-content-inner reveal-content">
             <h1 class="hero-title">Work, connect. <span class="text-orange"><br> co-exist.</span></h1>
-            <p class="hero-subtitle">HeadQ is Kerala's best design-forward coworking brand — built for people who take their work carefully and refuse to settle for conventional offices.
+            <p class="hero-subtitle">HeadQ is Kerala's best design forward coworking brand built for people who take their work carefully and refuse to settle for conventional offices.
             </p>
             <div class="hero-btns reveal-content d-flex flex-column align-items-center">
                 <a href="#about" class="btn-capsule mb-4">
@@ -365,7 +514,7 @@
     <div class="offer-band">
         <div class="container">
             <span class="offer-tag">#Specialoffer</span>
-            Limited Time — Full HeadQ Experience
+            Limited Time Full HeadQ Experience
             Valid 3 months • All amenities included • No fine print • Limited seats at both hubs
             ₹5,500 / seat + GST
         </div>
@@ -399,7 +548,7 @@
                         <span class="text-orange">Business</span></h2>
                     <div class="exp-content-box reveal-from-bottom">
                         <p class="lead text-muted mb-0">
-                            The majority of offices are simply spaces with desks. HeadQ is unique — we've created areas that capture Kerala's essence, its tempo, culture, and sense of community, and combined them with the infrastructure that international teams demand.
+                            The majority of offices are simply spaces with desks. HeadQ is unique we've created areas that capture Kerala's essence, its tempo, culture, and sense of community, and combined them with the infrastructure that international teams demand.
                             It's not just productive work here. It is unforgettable.
 
                         </p>
@@ -460,7 +609,7 @@
                         <h3 class="fw-normal mb-4 text-white" style="font-size: 2.2rem; letter-spacing: 1px;">Where Work Moves Forward.</h3>
                         <p class="text-muted fs-5 mb-5" style="max-width: 90%; line-height: 1.8;">
                             If you’re ready to take your business to the next level, this is where it begins.
-                            HeadQ brings together space, support, and community—giving you everything you need to grow, all in one place.!
+                            HeadQ brings together space, support, and community giving you everything you need to grow, all in one place.!
                         </p>
                         <a href="#spaces" class="btn-capsule"
                             style="background: rgba(255,255,255,0.15); border: none; font-size: 1.1rem; padding: 12px 12px 12px 30px;">
@@ -515,7 +664,7 @@
                         <span class="location-coords">11.2488° N, 75.7839° E</span>
                         <span class="bento-tag">The Heritage Hub</span>
                         <h3 class="bento-title">Kozhikode </h3>
-                        <p class="bento-desc">Housed in the iconic Hi-Lite Business Park, workspace spans floors 2, 3, 6 and 7 — a self-contained world of open desks, private cabins, conference suites, and breakout areas. A community of builders who are going places.
+                        <p class="bento-desc">Housed in the iconic Hi-Lite Business Park, workspace spans floors 2, 3, 6 and 7 a self-contained world of open desks, private cabins, conference suites, and breakout areas. A community of builders who are going places.
                             Hi-Lite Business Park, Kozhikode, Kerala.</p>
                         <a href="contact.html" class="bento-cta">
                             Explore Hub <i class="fas fa-arrow-right ps-2"></i>
@@ -559,6 +708,216 @@
                         <h3 class="bento-title" style="font-size: 1.8rem;">Business Base</h3>
                         <p class="bento-desc">Everything your business needs, seamlessly integrated.</p>
                         <a href="contact.html" class="bento-cta">Discover <i class="fas fa-arrow-right ps-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Auto-Playing Space Marquee -->
+    <section class="space-types-section" id="space-types">
+        <div class="container-fluid px-0">
+            <div class="text-center mb-5 reveal-from-bottom">
+                <h5 class="section-tag" style="letter-spacing: 6px;">CRAFTING PERFECTION</h5>
+                <h2 class="section-title">Diverse <span class="text-orange">Workspace</span> Ecosystem</h2>
+            </div>
+            
+            <div class="marquee-container reveal-from-bottom">
+                <div class="marquee-track">
+                    <!-- Set 1 -->
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">AVAILABLE</div>
+                        <img src="assets/spaces/hq1.jpeg" alt="Open Workstation">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Flexible</span>
+                                <h4 class="space-card-name">Open Workstation Area</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">PREMIUM</div>
+                        <img src="assets/spaces/hq2.jpeg" alt="Private Cabin">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Executive</span>
+                                <h4 class="space-card-name">Private Cabin Suite</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">TEAM HUB</div>
+                        <img src="assets/spaces/hq3.jpeg" alt="Conference Room">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Collaboration</span>
+                                <h4 class="space-card-name">10-Seater Conference Room</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">CHILL ZONE</div>
+                        <img src="assets/spaces/hq4.jpeg" alt="Breakout Lounge">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Relaxation</span>
+                                <h4 class="space-card-name">Breakout Lounge</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">GREETINGS</div>
+                        <img src="assets/spaces/hq5.jpeg" alt="Reception">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Hospitality</span>
+                                <h4 class="space-card-name">Premium Reception</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">QUIET ZONE</div>
+                        <img src="assets/spaces/hq6.jpeg" alt="Calling Booth">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Privacy</span>
+                                <h4 class="space-card-name">Private Calling Booth</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">EVENT READY</div>
+                        <img src="assets/spaces/hq7.jpeg" alt="Event Space">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Grandeur</span>
+                                <h4 class="space-card-name">Launch & Event Space</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">SECURE</div>
+                        <img src="assets/spaces/hq8.jpeg" alt="Parking">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Infrastructure</span>
+                                <h4 class="space-card-name">Building & Parking</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for seamless loop -->
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">AVAILABLE</div>
+                        <img src="assets/spaces/hq1.jpeg" alt="Open Workstation">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Flexible</span>
+                                <h4 class="space-card-name">Open Workstation Area</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">PREMIUM</div>
+                        <img src="assets/spaces/hq2.jpeg" alt="Private Cabin">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Executive</span>
+                                <h4 class="space-card-name">Private Cabin Suite</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">TEAM HUB</div>
+                        <img src="assets/spaces/hq3.jpeg" alt="Conference Room">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Collaboration</span>
+                                <h4 class="space-card-name">10-Seater Conference Room</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">CHILL ZONE</div>
+                        <img src="assets/spaces/hq4.jpeg" alt="Breakout Lounge">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Relaxation</span>
+                                <h4 class="space-card-name">Breakout Lounge</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">GREETINGS</div>
+                        <img src="assets/spaces/hq5.jpeg" alt="Reception">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Hospitality</span>
+                                <h4 class="space-card-name">Premium Reception</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">QUIET ZONE</div>
+                        <img src="assets/spaces/hq6.jpeg" alt="Calling Booth">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Privacy</span>
+                                <h4 class="space-card-name">Private Calling Booth</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">EVENT READY</div>
+                        <img src="assets/spaces/hq7.jpeg" alt="Event Space">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Grandeur</span>
+                                <h4 class="space-card-name">Launch & Event Space</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-item-card">
+                        <div class="space-glass-badge">SECURE</div>
+                        <img src="assets/spaces/hq8.jpeg" alt="Parking">
+                        <div class="space-card-overlay">
+                            <div class="space-card-content">
+                                <div class="space-card-line"></div>
+                                <span class="space-card-cat">Infrastructure</span>
+                                <h4 class="space-card-name">Building & Parking</h4>
+                                <button class="space-card-btn">Read More</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -613,6 +972,8 @@
                 <img src="assets/partners/jawaharal.png" alt="Jawaharal" class="partner-logo-img mx-4">
                 <img src="assets/partners/kattoorans.jpeg" alt="Kattoorans" class="partner-logo-img mx-4">  
                 <img src="assets/partners/sunflow.png" alt="sunflow" class="partner-logo-img mx-4">
+                <!-- Added Chefouse -->
+                <img src="assets/partners/chefouse.png" alt="Chefouse" class="partner-logo-img mx-4">
 
 
                 <!-- Block 2 (Duplicate for seamless loop) -->
@@ -632,6 +993,8 @@
                 <img src="assets/partners/jawaharal.png" alt="Jawaharal" class="partner-logo-img mx-4">
                 <img src="assets/partners/kattoorans.jpeg" alt="Kattoorans" class="partner-logo-img mx-4">
                 <img src="assets/partners/sunflow.png" alt="sunflow" class="partner-logo-img mx-4">
+                <!-- Added Chefouse -->
+                <img src="assets/partners/chefouse.png" alt="Chefouse" class="partner-logo-img mx-4">
 
                 <!-- Block 3 (Triple duplicate for ultra-wide screens) --> 
                 <span class="trust-badge mx-5 fw-bolder" style="letter-spacing: 2px; color: #111;">TRUSTED BY
@@ -651,6 +1014,8 @@
                 <img src="assets/partners/jawaharal.png" alt="Jawaharal" class="partner-logo-img mx-4">
                 <img src="assets/partners/kattoorans.jpeg" alt="Kattoorans" class="partner-logo-img mx-4">
                 <img src="assets/partners/sunflow.png" alt="sunflow" class="partner-logo-img mx-4">
+                <!-- Added Chefouse -->
+                <img src="assets/partners/chefouse.png" alt="Chefouse" class="partner-logo-img mx-4">
 
             </div>
         </div>
