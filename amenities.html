@@ -464,8 +464,19 @@
         }
 
         @media (max-width: 768px) {
+            .gallery-hero-premium {
+                height: calc(100vh - 40px);
+                min-height: auto !important;
+            }
             .amenities-hero-bg {
                 background-size: cover !important;
+            }
+            .hero-text-container-mobile {
+                padding-top: 0 !important;
+                justify-content: center !important;
+            }
+            .hero-text-content {
+                margin: auto !important;
             }
         }
 
@@ -481,7 +492,7 @@
         style="min-height: 100vh; overflow: hidden;">
         <div class="amenities-hero-bg"></div>
         <div class="hero-overlay-amenities"></div>
-        <div class="container text-center position-relative h-100 d-flex flex-column"
+        <div class="container text-center position-relative h-100 d-flex flex-column hero-text-container-mobile"
             style="z-index: 2; padding-top: 20vh;">
             <div class="hero-text-content mb-auto">
                 <h5 class="section-tag reveal-from-bottom mb-3"

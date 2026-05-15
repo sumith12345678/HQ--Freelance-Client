@@ -70,6 +70,16 @@
             filter: brightness(0.7);
         }
 
+        @media (max-width: 768px) {
+            .community-hero {
+                height: calc(100vh - 40px);
+            }
+            .community-hero-img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
         .community-hero-content {
             position: absolute;
             top: 50%;
