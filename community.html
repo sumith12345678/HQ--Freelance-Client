@@ -54,36 +54,33 @@
         }
 
         .community-hero {
-            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 160px 0 80px;
             position: relative;
             overflow: hidden;
-        }
-
-        .community-hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: url('assets/backgrounds/com.png') center/100% no-repeat;
-            filter: brightness(0.7);
-            z-index: 1;
         }
 
-        @media (max-width: 768px) {
-            .community-hero-bg {
-                background-size: cover !important;
-            }
+        .community-hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.7);
+        }
+
+        .community-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            z-index: 5;
         }
 
         .community-hero .container {
             position: relative;
-            z-index: 5;
         }
 
         .hero-eyebrow {
@@ -454,14 +451,16 @@
 
     <!-- Community Hero Section -->
     <section class="community-hero">
-        <div class="community-hero-bg"></div>
-        <div class="container">
-            <div class="reveal-from-bottom">
-                <h5 class="hero-eyebrow">HeadQ • Kochi & Kozhikode</h5>
-                <h1 class="hero-heading">Where work becomes <span class="italic text-orange">community.</span></h1>
-                <p class="hero-body">HeadQ is more than a workspace — it's a growing ecosystem of founders, freelancers,
-                    and professionals who collaborate, share ideas, and build together. Explore our programmes and
-                    community moments below.</p>
+        <img src="assets/backgrounds/com.png" alt="HeadQ Community" class="community-hero-img">
+        <div class="community-hero-content">
+            <div class="container">
+                <div class="reveal-from-bottom">
+                    <h5 class="hero-eyebrow">HeadQ • Kochi & Kozhikode</h5>
+                    <h1 class="hero-heading">Where work becomes <span class="italic text-orange">community.</span></h1>
+                    <p class="hero-body">HeadQ is more than a workspace — it's a growing ecosystem of founders, freelancers,
+                        and professionals who collaborate, share ideas, and build together. Explore our programmes and
+                        community moments below.</p>
+                </div>
             </div>
         </div>
     </section>
