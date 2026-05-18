@@ -417,7 +417,7 @@
             IMAGE_DATA.forEach((item, i) => {
                 html += `
                     <div class="masonry-item" data-index="${i}">
-                        <img src="${item.src}" alt="${item.title}" decoding="async">
+                        <img loading="lazy" src="${item.src}" alt="${item.title}" decoding="async">
                         <div class="item-overlay">
                             <div class="item-tag">${item.loc}</div>
                             <h3 class="item-title">${item.title}</h3>
