@@ -114,11 +114,11 @@ body {
 }
 
 .hero-slider-bg.slide-1 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url('assets/backgrounds/x1.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url('assets/backgrounds/com.png');
 }
 
 .hero-slider-bg.slide-2 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url('assets/backgrounds/x2.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url('assets/backgrounds/amenitiesv.png');
 }
 
 /* Hero Slider Dots */

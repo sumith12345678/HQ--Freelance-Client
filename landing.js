@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ease: "power3.out"
                 });
             }
-        }, 150); // Minimal delay to instantly trigger scroll after paint
+        }, 1600); // Delayed to trigger after the 1.5s cinematic loader finishes
     }
 });
 
