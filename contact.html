@@ -479,6 +479,56 @@
                 padding: 40px 24px;
             }
         }
+
+        /* ======== MAPS SECTION ======== */
+        .map-card {
+            background: linear-gradient(135deg, #111 0%, #0c0c0c 100%);
+            border: 1px solid #1e1e1e;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .map-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(244, 140, 6, 0.15);
+        }
+
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .map-iframe {
+            display: block;
+            width: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .map-info {
+            padding: 24px;
+        }
+
+        .map-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .map-info p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .text-orange {
+            color: var(--primary-orange);
+        }
     </style>
 </head>
 
@@ -617,21 +667,9 @@
                         <p>Fill in your details and we'll get back to you within 24 hours.</p>
 
                         <form class="row g-3" id="enquiryForm" onsubmit="sendToWhatsApp(event)">
-                            <div class="col-md-6 input-group-dark">
-                                <label>First Name</label>
-                                <input type="text" id="fName" placeholder="John">
-                            </div>
-                            <div class="col-md-6 input-group-dark">
-                                <label>Last Name</label>
-                                <input type="text" id="lName" placeholder="Doe">
-                            </div>
-                            <div class="col-md-6 input-group-dark">
-                                <label>Email Address</label>
-                                <input type="email" id="fEmail" placeholder="you@example.com">
-                            </div>
-                            <div class="col-md-6 input-group-dark">
-                                <label>Phone Number</label>
-                                <input type="tel" id="fPhone" placeholder="+91 00000 00000">
+                            <div class="col-12 input-group-dark">
+                                <label>Name</label>
+                                <input type="text" id="fName" placeholder="Your Name">
                             </div>
                             <div class="col-md-6 input-group-dark">
                                 <label>Preferred Location</label>
@@ -673,6 +711,44 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maps Section (Always Visible) -->
+    <section id="maps-section" style="background: #070707; padding: 60px 0 100px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <span style="color:var(--primary-orange);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;font-weight:700;">Find Us</span>
+                    <h3 class="fw-bold text-white mt-2">Our Locations</h3>
+                </div>
+                
+                <!-- Kochi Map -->
+                <div class="col-md-6 mb-4">
+                    <div class="map-card h-100">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003967.7144027073!2d75.41774826249998!3d10.598796092297915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08730f69077fcf%3A0x7e6d0d5948442e06!2sHeadQ!5e0!3m2!1sen!2sin!4v1781065836545!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-iframe"></iframe>
+                        </div>
+                        <div class="map-info">
+                            <h4><i class="fas fa-map-marker-alt text-orange"></i> Kochi</h4>
+                            <p>HiLite Platino, Kochi, Kerala</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calicut Map -->
+                <div class="col-md-6 mb-4">
+                    <div class="map-card h-100">
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1850400221515!2d75.83148087584188!3d11.247794450320825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b987d157b75%3A0x1cb91250aa9a210a!2sHeadQ!5e0!3m2!1sen!2sin!4v1781065692367!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-iframe"></iframe>
+                        </div>
+                        <div class="map-info">
+                            <h4><i class="fas fa-map-marker-alt text-orange"></i> Calicut (Kozhikode)</h4>
+                            <p>Hi-Lite Business Park, Kozhikode, Kerala</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -737,22 +813,15 @@
         function sendToWhatsApp(e) {
             e.preventDefault();
 
-            const firstName = document.getElementById('fName').value.trim();
-            const lastName = document.getElementById('lName').value.trim();
-            const email = document.getElementById('fEmail').value.trim();
-            const phone = document.getElementById('fPhone').value.trim();
+            const name = document.getElementById('fName').value.trim() || 'Not provided';
             const location = document.getElementById('fLocation').value;
             const plan = document.getElementById('fPlan').value;
             const message = document.getElementById('fMessage').value.trim();
-
-            const name = (firstName + ' ' + lastName).trim() || 'Not provided';
 
             const text =
                 `🏢 *HeadQ Enquiry*
 
 👤 *Name:* ${name}
-📧 *Email:* ${email || 'Not provided'}
-📞 *Phone:* ${phone || 'Not provided'}
 📍 *Location:* ${location || 'Not selected'}
 💼 *Interested In:* ${plan || 'Not selected'}
 💬 *Message:*
@@ -760,7 +829,13 @@ ${message || 'No message'}
 
 _Sent via HeadQ Contact Page_`;
 
-            const waNumber = '91824828200';
+            let waNumber = '919037115652'; // default Kozhikode
+            if (location && location.includes('Kochi')) {
+                waNumber = '918138951361';
+            } else if (location && location.includes('Kozhikode')) {
+                waNumber = '919037115652';
+            }
+
             const waURL = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text);
 
             // Show toast

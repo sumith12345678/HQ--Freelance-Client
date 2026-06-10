@@ -79,6 +79,7 @@
             .community-hero {
                 height: calc(100vh - 40px);
             }
+
             .community-hero-img {
                 height: 100%;
                 object-fit: cover;
@@ -118,7 +119,7 @@
             line-height: 1;
             margin-bottom: 20px;
             color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero-heading span.italic {
@@ -301,14 +302,39 @@
             .waitlist-form {
                 flex-direction: column;
             }
+
             .waitlist-input {
                 width: 100%;
                 margin-bottom: 10px;
             }
+
             .waitlist-form .btn-capsule {
                 width: 100%;
                 justify-content: center;
             }
+        }
+
+        /* Social Link Icons */
+        .social-link-icon {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+        
+        .social-link-icon:hover {
+            color: var(--primary-orange);
+            background: rgba(255, 107, 0, 0.1);
+            border-color: var(--primary-orange);
+            transform: translateY(-3px);
         }
 
         /* Event Tiles */
@@ -472,7 +498,8 @@
                 <div class="reveal-from-bottom">
                     <h5 class="hero-eyebrow">HeadQ • Kochi & Kozhikode</h5>
                     <h1 class="hero-heading">Where work becomes <span class="italic text-orange">community.</span></h1>
-                    <p class="hero-body">HeadQ is more than a workspace — it's a growing ecosystem of founders, freelancers,
+                    <p class="hero-body">HeadQ is more than a workspace — it's a growing ecosystem of founders,
+                        freelancers,
                         and professionals who collaborate, share ideas, and build together. Explore our programmes and
                         community moments below.</p>
                 </div>
@@ -498,14 +525,16 @@
                 </div>
                 <!-- Tile 2 -->
                 <div class="gallery-tile">
-                    <img loading="lazy" src="assets/hq-images-optimized/DSC04009.webp" alt="Breakout lounge — Kozhikode hub">
+                    <img loading="lazy" src="assets/hq-images-optimized/DSC04009.webp"
+                        alt="Breakout lounge — Kozhikode hub">
                     <div class="tile-overlay">
                         <p class="tile-caption">2. Breakout lounge — Kozhikode hub</p>
                     </div>
                 </div>
                 <!-- Tile 3 -->
                 <div class="gallery-tile">
-                    <img loading="lazy" src="assets/hq-images-optimized/DSC03993.webp" alt="Conference room — Kochi hub">
+                    <img loading="lazy" src="assets/hq-images-optimized/DSC03993.webp"
+                        alt="Conference room — Kochi hub">
                     <div class="tile-overlay">
                         <p class="tile-caption">3. Conference room — Kochi hub</p>
                     </div>
@@ -519,7 +548,8 @@
                 </div>
                 <!-- Tile 5 -->
                 <div class="gallery-tile">
-                    <img loading="lazy" src="assets/hq-images-optimized/DSC04073.webp" alt="Networking session — Kozhikode hub">
+                    <img loading="lazy" src="assets/hq-images-optimized/DSC04073.webp"
+                        alt="Networking session — Kozhikode hub">
                     <div class="tile-overlay">
                         <p class="tile-caption">5. Networking session — Kozhikode hub</p>
                     </div>
@@ -607,13 +637,22 @@
                         </div>
 
                         <div class="mt-5">
-                            <p class="fw-bold mb-2">Be the first to know when we launch.</p>
-                            <form class="waitlist-form">
-                                <input type="email" class="waitlist-input" placeholder="your@email.com">
-                                <button type="submit" class="btn-capsule" style="padding: 10px 30px;">
-                                    Notify me
-                                </button>
-                            </form>
+                            <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+                                <p class="fw-bold text-white mb-0">Join Our Community Today</p>
+                                <!-- WhatsApp Button -->
+                                <a href="https://wa.me/919037115652?text=Hello%20I%20want%20to%20join%20the%20HeadQ%20community!" target="_blank" class="btn-capsule d-inline-flex align-items-center gap-2" style="padding: 10px 24px; text-decoration: none;">
+                                    <i class="fab fa-whatsapp fs-5"></i>
+                                    Connect on WhatsApp
+                                </a>
+                            </div>
+
+                            <!-- Social Icons -->
+                            <div class="d-flex align-items-center gap-3 mt-2">
+                                <span class="text-white-50 small">Follow us:</span>
+                                <a href="https://www.instagram.com/headq_coworking?igsh=MWE2cmFmbzh3OWcyag==" target="_blank" class="social-link-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/headq-coworking-space-824828200" target="_blank" class="social-link-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.facebook.com/share/1GK1qBV1BL/" target="_blank" class="social-link-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -701,7 +740,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5">
-                    <img loading="lazy" src="assets/logo/logo.png" alt="HeadQ" style="height: 50px; width: auto; object-fit: contain;">
+                    <img loading="lazy" src="assets/logo/logo.png" alt="HeadQ"
+                        style="height: 50px; width: auto; object-fit: contain;">
                     <p class="mt-4 pe-lg-5 text-white">Premium coworking spaces designed for creators, culture, and
                         community.</p>
                     <div class="mt-4">
@@ -748,7 +788,8 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/919037115652?text=Hello%20I%20want%20more%20information" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/919037115652?text=Hello%20I%20want%20more%20information" class="whatsapp-float"
+        target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
